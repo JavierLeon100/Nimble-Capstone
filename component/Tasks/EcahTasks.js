@@ -5,21 +5,6 @@ import Swipeout from "react-native-swipeout";
 
 
 export default function EachTask ({task}) {
-    
-    //another swipe-out library
-    // const Button = ()=> <Button bg='#DB44C7'>Open</Button>
-    // const swipeoutBtns = [
-    //     {
-    //       component: Button
-    //     }
-    //   ]
-
-    //   const swipeOutStyle = {
-    //       width : '80%',
-    //       padding : 30,
-    //       borderRadius : 15
-    //   }
-
     return (
         <GestureRecognizer
         onSwipeLeft={()=>alert("swiped")
