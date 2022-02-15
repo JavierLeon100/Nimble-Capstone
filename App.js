@@ -1,20 +1,15 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
 
-export default function App() {
+import { NavigationContainer } from "@react-navigation/native";
+import {NativeBaseProvider} from "native-base";
+import  Index from './index'
+
+export default function App (){
     return (
-        <View style={styles.container}>
-            <Text>Yeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</Text>
-            <StatusBar style="auto" />
-        </View>
-    );
+        <NativeBaseProvider>
+          <NavigationContainer>                      
+            <Index />
+          </NavigationContainer>
+        </NativeBaseProvider>
+       
+    )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "center",
-    },
-});
