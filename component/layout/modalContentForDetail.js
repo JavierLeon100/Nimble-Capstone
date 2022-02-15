@@ -1,4 +1,4 @@
-import { Center, FormControl, Heading, HStack, Text, VStack, Input, Stack, Slider, Box, Image, TextArea, ScrollView, Switch, Checkbox, Button } from "native-base";
+import { Center, FormControl, Heading, HStack, Text, VStack, Input, Stack, Slider, Box, TextArea, ScrollView, Switch, Checkbox, Button } from "native-base";
 import { AntDesign } from '@expo/vector-icons'; 
 import { useState } from "react";
 import { colors } from "../../utilis/colors";
