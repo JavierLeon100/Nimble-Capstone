@@ -45,6 +45,7 @@ export default function EachTask ({task, handleShowModal, i}) {
                         </HStack>                
                     </HStack>
                 {/* </Swipeable> */}
+                <Button onPress={()=>handleShowModal(true)}>test modal</Button>
             </Center>
             </>
         

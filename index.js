@@ -1,6 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {Avatar} from "native-base";
 import { Text, View } from 'react-native';
+import ActivityScreen from "./src/component/screens/ActivityScreen";
+import RewardScreen from "./src/component/screens/RewardScreen";
 import TaskScreen from './src/component/screens/TaskScreen'
 
 
@@ -36,8 +38,8 @@ export default function(){
         <Tab.Navigator>
         <Tab.Screen name="Tasks" component={TaskScreen} 
         options={options}/>
-        <Tab.Screen name="Activity" component={SettingsScreen} options={options}/>
-        <Tab.Screen name="Rewards" component={SettingsScreen} options={options}/>
+        <Tab.Screen name="Activity" component={ActivityScreen} options={options}/>
+        <Tab.Screen name="Rewards" component={RewardScreen} options={options}/>
         </Tab.Navigator>
     )
 }

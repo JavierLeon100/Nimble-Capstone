@@ -3,8 +3,9 @@ import AllOrSuggested from "../layout/AllOrSuggested";
 import Date from "../layout/Date";
 import EachTask from "../listItems/tasks/EachTasks";
 import {Modal} from "react-native"
-import ModalContentForDetail from "../layout/modalContentForDetail";
+import ModalDetailForActivity from "../modal/modalDetailForActivity";
 import { useState } from "react";
+import { FlatList } from "native-base";
 
 
 const exampleArray = ["Weeping", "Washing Dishes", "Preparing Meals", "Studying"]
@@ -14,17 +15,22 @@ export default function Index(){
     const handleShowModal = (boo)=>{
         boo ? setShowModal(true) : setShowModal(false)
     }
-    const mapTasks = exampleArray.map((task, i)=> <EachTask task={task} handleShowModal={handleShowModal} key={i}/>)
+    //if not using flatlist
+    // const mapTasks = exampleArray.map((task)=> <EachTask task={task} handleShowModal={handleShowModal} />)
 
     return(
         <>
         <AllOrSuggested />
         <Date />
-        {mapTasks}
+        {/* {mapTasks} */}
+
+        <FlatList data={exampleArray} renderItem={({item, i})=><EachTask task={item} handleShowModal={handleShowModal} key={i}/>}>
+
+        </FlatList>
         <PlusButton />
 
         <Modal visible={showModal} presentationStyle="formSheet" animationType="slide">
-                    <ModalContentForDetail handleShowModal={handleShowModal}/>
+                    <ModalDetailForActivity handleShowModal={handleShowModal}/>
         </Modal>
         </>
     )

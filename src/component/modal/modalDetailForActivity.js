@@ -4,7 +4,7 @@ import { useState } from "react";
 import { colors } from "../utilis/colors";
 
 
-export default function ModalContentForDetail({handleShowModal}){
+export default function ModalDetailForActivity({handleShowModal}){
     const [sliderValue, setSliderValue] = useState(0)
 
     const sliderOnChange = (v)=>{
