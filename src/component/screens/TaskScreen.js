@@ -1,7 +1,7 @@
 import PlusButton from "../buttons/PlusButton";
 import AllOrSuggested from "../layout/AllOrSuggested";
 import Date from "../layout/Date";
-import EachTask from "../Tasks/EcahTasks";
+import EachTask from "../listItems/tasks/EachTasks";
 import {Modal} from "react-native"
 import ModalContentForDetail from "../layout/modalContentForDetail";
 import { useState } from "react";
@@ -14,7 +14,7 @@ export default function Index(){
     const handleShowModal = (boo)=>{
         boo ? setShowModal(true) : setShowModal(false)
     }
-    const mapTasks = exampleArray.map(task=> <EachTask task={task} handleShowModal={handleShowModal}/>)
+    const mapTasks = exampleArray.map((task, i)=> <EachTask task={task} handleShowModal={handleShowModal} key={i}/>)
 
     return(
         <>

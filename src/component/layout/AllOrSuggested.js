@@ -1,5 +1,5 @@
 import { Box, Center, HStack, Text } from "native-base";
-import { colors } from "../../utilis/colors";
+import { colors } from "../utilis/colors";
 
 
 export default function AllOrSuggested (){

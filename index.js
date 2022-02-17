@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {Avatar} from "native-base";
 import { Text, View } from 'react-native';
-import TaskScreen from './component/screens/TaskScreen'
+import TaskScreen from './src/component/screens/TaskScreen'
 
 
 function SettingsScreen() {
