@@ -2,7 +2,7 @@ import { HStack, Text, Center, Button, VStack} from "native-base"
 import {colors} from "../../utilis/colors"
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { AntDesign } from '@expo/vector-icons';
-import { GestureHandlerRootView } from "react-native-gesture-handler";
+
 
 
 
