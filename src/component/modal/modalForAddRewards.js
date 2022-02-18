@@ -4,6 +4,7 @@ import { colors } from "../utilis/colors";
 import * as ImagePicker from 'expo-image-picker';
 import RecordVideo from "../layout/recordVideo";
 import { Video } from "expo-av";
+import { Camera } from "expo-camera";
 
 export default function ModalForAddRewards({handleShowModal}){
     const [image, setImage] = useState();
@@ -12,7 +13,10 @@ export default function ModalForAddRewards({handleShowModal}){
     const [stopRec, setStopRec] = useState(false)
     const videoRef = useRef(null)
     const [sliderValue, setSliderValue] = useState(0)
+
     const [cameraPermission, setCameraPermission] = useState()
+    const [recordVideoPermission, setRecordVideoPermission] = useState()
+    const [audioPermission, setAudioPermission] = useState()
 
     const sliderOnChange = (v)=>{
             setSliderValue(Math.floor(v))
@@ -41,6 +45,10 @@ export default function ModalForAddRewards({handleShowModal}){
         setCameraPermission(status === 'granted');
         const {uri} = await ImagePicker.launchCameraAsync()
         setImage(uri)
+        const s = await Camera.requestCameraPermissionsAsync().status
+        setRecordVideoPermission(s === "granted")
+        const audio = await Camera.requestMicrophonePermissionsAsync().status
+        setAudioPermission(audio === "granted")
     }
 
     const startRecordVideo = async ()=>{
