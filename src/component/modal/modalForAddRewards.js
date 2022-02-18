@@ -3,11 +3,13 @@ import { useRef, useState } from "react";
 import { colors } from "../utilis/colors";
 import * as ImagePicker from 'expo-image-picker';
 import RecordVideo from "../layout/recordVideo";
+import { Video } from "expo-av";
 
 export default function ModalForAddRewards({handleShowModal}){
     const [image, setImage] = useState();
     const [video, setVideo] = useState()
     const [onRecording, setOnRecording] = useState(false)
+    const [stopRec, setStopRec] = useState(false)
     const videoRef = useRef(null)
     const [sliderValue, setSliderValue] = useState(0)
     const [cameraPermission, setCameraPermission] = useState()
@@ -42,15 +44,27 @@ export default function ModalForAddRewards({handleShowModal}){
     }
 
     const startRecordVideo = async ()=>{
+        try {
+            const {uri} = await videoRef.current.recordAsync({ quality: '1080p'})
+            alert(uri)
+            setVideo(uri)
+        } catch (error) {
+            alert(error)
+        } 
+    }
+    const stopRecordVideo = ()=>{
        
+        const stopRec = videoRef.current.stopRecording()
     }
 
-    const stopRecordVideo = async ()=>{
-
+    const closeVideoRecording = ()=>{
+        setOnRecording(false)
     }
+
+
     return(
         <>
-        { onRecording ? <RecordVideo /> : 
+        { onRecording ? <RecordVideo start={startRecordVideo} videoRef={videoRef} stop={stopRecordVideo} close={closeVideoRecording}/> : 
         <ScrollView>
         <Center>
             <VStack w="100%">
@@ -74,7 +88,7 @@ export default function ModalForAddRewards({handleShowModal}){
                     <VStack mb="5">
                         <Text>Points</Text>
                         <Box bg={colors.gray}  mt="3"  borderRadius="10" p="5">
-                            <Slider size="lg" defaultValue={0} onChange={sliderOnChange} onChangeEnd={sliderOnChangeEnd}>
+                            <Slider size="lg" defaultValue={0} onChange={sliderOnChange} onChangeEnd={sliderOnChangeEnd} videoRef={videoRef}>
                             <Slider.Track>
                                 <Slider.FilledTrack />
                             </Slider.Track>
@@ -88,9 +102,13 @@ export default function ModalForAddRewards({handleShowModal}){
                     <VStack  mb="5">
                     <Text>Attached Photos/Video</Text>
                     {image ?   <Image source={{ uri: image }} style={{ width: 200, height: 200 }} alt="image"/> : null}
+                    {video ? <Video style={{ width: 200, height: 200 }}
+                    source={{uri : video}} useNativeControls resizeMode="contain" 
+                    /> : null}
                     <Button onPress={takePhoto} mb="2">take an  image</Button>
-                    <Button onPress={()=>setOnRecording(true)} mb="2" startRecordVideo={startRecordVideo} stopRecordVideo={stopRecordVideo}>record a video</Button>
+                    <Button onPress={()=>setOnRecording(true)} mb="2">record a video</Button>
                     <Button onPress={pickImage}>Pic image</Button>
+                    <Button onPress={()=>alert(video)}>see url</Button>
                     </VStack>
 
                     <Stack mb="5">
