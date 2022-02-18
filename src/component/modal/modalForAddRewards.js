@@ -38,11 +38,13 @@ export default function ModalForAddRewards({handleShowModal}){
     }
 
     const takePhoto = async ()=>{
-        // const { status } = await Camera.requestCameraPermissionsAsync();
-        // setCameraPermission(status === 'granted');
-
-        const {status} = await ImagePicker.getCameraPermissionsAsync()
+        const { status } = await Camera.requestCameraPermissionsAsync();
         setCameraPermission(status === 'granted');
+
+        // const {status} = await ImagePicker.getCameraPermissionsAsync()
+        // setCameraPermission(status === 'granted');
+        // const s = await ImagePicker.getCameraLibraryAsync().status
+        // setRecordVideoPermission(s === "granted")
         const {uri} = await ImagePicker.launchCameraAsync()
         setImage(uri)
         const s = await Camera.requestCameraPermissionsAsync().status
