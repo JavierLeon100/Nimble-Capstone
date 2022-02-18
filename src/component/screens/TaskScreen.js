@@ -16,7 +16,7 @@ export default function Index(){
         boo ? setShowModal(true) : setShowModal(false)
     }
     //if not using flatlist
-    // const mapTasks = exampleArray.map((task)=> <EachTask task={task} handleShowModal={handleShowModal} />)
+    // const mapTasks = exampleArray.map((task, i)=> <EachTask task={task} handleShowModal={handleShowModal} key={i}/>)
 
     return(
         <>
