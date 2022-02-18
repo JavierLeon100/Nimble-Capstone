@@ -1,6 +1,7 @@
 import { HStack, Text, Center, Button, VStack} from "native-base"
 import {colors} from "../../utilis/colors"
 import Swipeable from 'react-native-gesture-handler/Swipeable';
+// import Swipeable from 'react-native-swipeable';
 import { AntDesign } from '@expo/vector-icons';
 
 
@@ -24,14 +25,15 @@ export default function EachTask ({task, handleShowModal, i}) {
     return (
         <>
         <Center mb={3} key={i}>
-                {/* <Swipeable renderRightActions={leftContent} containerStyle={{
+                <Swipeable renderRightActions={leftContent} containerStyle={{
                     width : "80%"
                 }} 
                 onSwipeableRightOpen={()=>handleShowModal(true)}
                 friction="1"
                 rightThreshold="10"
                 overshootRight="false"
-                > */}
+                >
+                {/* <Swipeable rightContent={leftContent}> */}
                     <HStack bg={colors.gray}  px="6" py="5" borderRadius="15">   
                         <VStack>           
                             <Text fontSize="19">{task}</Text> 
@@ -44,6 +46,7 @@ export default function EachTask ({task, handleShowModal, i}) {
                         <AntDesign name="user" size={14} color="black" />   
                         </HStack>                
                     </HStack>
+                </Swipeable>
                 {/* </Swipeable> */}
                 <Button onPress={()=>handleShowModal(true)}>test modal</Button>
             </Center>
