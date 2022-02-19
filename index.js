@@ -57,9 +57,9 @@ export default function(){
         </Tab.Navigator>
 
         <Modal visible={showModal} presentationStyle="fullScreen" animationType="slide">
-          {editParent ?  <EditParentProfile showModal={()=>setShowModal(false)}/>
+          {editParent ?  <EditParentProfile showModal={()=>setShowModal(false)} changeMode={()=>setEditParent(false)}/>
           :
-          <EditChildProfile showModal={()=>setShowModal(false)}/>}
+          <EditChildProfile showModal={()=>setShowModal(false)} changeMode={()=>setEditParent(true)}/>}
            
         </Modal>
       </>

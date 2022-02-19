@@ -1,4 +1,4 @@
-import { Button, Text } from "native-base";
+import { Button, ScrollView, Text } from "native-base";
 import { useState } from "react";
 import Date from "../layout/Date";
 import DefaultForActivity from "../view/activity/defaultForActivity";
@@ -11,7 +11,12 @@ export default function ActivityScreen(){
     return (
         <>
         <Date  />
-        {defaultScreen ? <DefaultForActivity /> : <TaskViewForActivity />}
+        {defaultScreen ? 
+        <ScrollView>
+            <DefaultForActivity />
+        </ScrollView> 
+        : 
+        <TaskViewForActivity />}
         
 
 

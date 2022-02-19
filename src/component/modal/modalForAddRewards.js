@@ -129,7 +129,7 @@ export default function ModalForAddRewards({handleShowModal}){
                     <VStack space="6" mb="70">                    
                     <Button p="5" borderRadius="10">Save</Button>
                     <Center>
-                    <Button w="80%" p="4" borderRadius="10" >Cancel/Delete</Button>
+                    <Button w="80%" p="4" borderRadius="10" onPress={()=>handleShowModal(false)}>Cancel/Delete</Button>
                     </Center>
                     </VStack>
                 </FormControl>
