@@ -15,14 +15,12 @@ export default function Index(){
     const handleShowModal = (boo)=>{
         boo ? setShowModal(true) : setShowModal(false)
     }
-    //if not using flatlist
-    // const mapTasks = exampleArray.map((task, i)=> <EachTask task={task} handleShowModal={handleShowModal} key={i}/>)
+
 
     return(
         <>
         <AllOrSuggested />
         <Date />
-        {/* {mapTasks} */}
 
         <FlatList data={exampleArray} renderItem={({item, i})=><EachTask task={item} handleShowModal={handleShowModal} key={i}/>}>
 

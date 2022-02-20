@@ -7,7 +7,6 @@ import EditParentProfile from "./src/component/modal/editParentProfile";
 import ActivityScreen from "./src/component/screens/ActivityScreen";
 import RewardScreen from "./src/component/screens/RewardScreen";
 import TaskScreen from './src/component/screens/TaskScreen'
-import { NativeRouter, Route, Link } from "react-router-native";
 import EditChildProfile from "./src/component/modal/editChildProfile";
 
 
