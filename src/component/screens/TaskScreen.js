@@ -8,7 +8,24 @@ import { useState } from "react";
 import { FlatList } from "native-base";
 
 
-const exampleArray = ["Weeping", "Washing Dishes", "Preparing Meals", "Studying"]
+const exampleArray = [
+    {
+        id : 1, 
+        task  : "Weeping"
+    }, 
+    {
+        id : 2,
+        task : "Washing Dishes",
+    },
+    {
+        id : 3,
+        task : "Preparing Meals"
+    },
+    {
+        id : 4,
+        task : "Studying"
+    }
+    ]
 
 export default function Index(){
     const [showModal, setShowModal] = useState(false)
@@ -16,13 +33,15 @@ export default function Index(){
         boo ? setShowModal(true) : setShowModal(false)
     }
 
+    
+
 
     return(
         <>
         <AllOrSuggested />
         <Date />
 
-        <FlatList data={exampleArray} renderItem={({item, i})=><EachTask task={item} handleShowModal={handleShowModal} key={i}/>}>
+        <FlatList data={exampleArray} renderItem={({item})=><EachTask task={item.task} i={item.id} handleShowModal={handleShowModal} />}>
 
         </FlatList>
         <PlusButton />
