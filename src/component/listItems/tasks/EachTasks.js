@@ -6,10 +6,9 @@ import { Dimensions, Platform} from 'react-native';
 import Animated, { event, runOnJS, useAnimatedGestureHandler, useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
 import { PanGestureHandler } from "react-native-gesture-handler";
 
-
 export default function EachTask ({task, handleShowModal, i}) {
-        const openButton =  <Center bg={colors.black} w="100" borderRadius="15" position="absolute" top="0" w="80%"
-                            px="6" py="9" borderRadius="20" alignItems="flex-end">
+        const openButton =  <Center bg={colors.black} borderRadius="15" position="absolute" top="0" w="80%"
+                            px="6" py="9" alignItems="flex-end">
                             <Text color="white">Open</Text>
                             </Center> 
 
@@ -24,7 +23,6 @@ export default function EachTask ({task, handleShowModal, i}) {
                 } else {
                     translateX.value = event.translationX
                 }
-                
             },
             onEnd : event=>{
                 if(event.translationX > 0){
