@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import {Avatar, Pressable} from "native-base";
+import {Avatar, Pressable, Stack} from "native-base";
 import { useState } from "react";
 import { Modal } from "react-native";
 import { Text, View } from 'react-native';
@@ -11,6 +11,7 @@ import EditChildProfile from "./src/component/modal/editChildProfile";
 
 
 
+
 function SettingsScreen() {
   
     return (
@@ -19,7 +20,7 @@ function SettingsScreen() {
         </View>
     );
 }
-const Tab = createBottomTabNavigator()
+const Tab = createBottomTabNavigator();
 const uriForImg = "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
 
 
@@ -59,7 +60,6 @@ export default function(){
           {editParent ?  <EditParentProfile showModal={()=>setShowModal(false)} changeMode={()=>setEditParent(false)}/>
           :
           <EditChildProfile showModal={()=>setShowModal(false)} changeMode={()=>setEditParent(true)}/>}
-           
         </Modal>
       </>
     )

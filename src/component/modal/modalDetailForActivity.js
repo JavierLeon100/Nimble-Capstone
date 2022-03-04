@@ -29,7 +29,7 @@ export default function ModalDetailForActivity({handleShowModal}){
                 <FormControl w="80%">
                     <Stack mb="5">
                         <FormControl.Label>Title</FormControl.Label>
-                        <Input p={2} placeholder="Title" p="6" borderRadius="10"/>
+                        <Input p={2} placeholder="Title" borderRadius="10"/>
                     </Stack>
 
                     <VStack mb="5">
@@ -44,7 +44,7 @@ export default function ModalDetailForActivity({handleShowModal}){
 
                     <Stack mb="5">
                         <FormControl.Label>Data/time</FormControl.Label>
-                        <Input p={2} placeholder="Data/time" p="6" borderRadius="10"/>
+                        <Input p={2} placeholder="Data/time"  borderRadius="10"/>
                     </Stack>
 
                     <VStack mb="5">
@@ -72,7 +72,7 @@ export default function ModalDetailForActivity({handleShowModal}){
 
                     <Stack mb="5">
                         <FormControl.Label>Notes</FormControl.Label>
-                        <TextArea p={2} placeholder="Data/time" p="6" borderRadius="10" height="150"/>
+                        <TextArea p={2} placeholder="Data/time" borderRadius="10" height="150"/>
                     </Stack>
 
                     <VStack mb="5">
